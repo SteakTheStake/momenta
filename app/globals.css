@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -23,4 +21,85 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+
+@layer utilities {
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  
+  .bg-space-900 {
+    background-color: #0a0e17;
+  }
+}
+
+.laptop-image {
+  width: 35%;
+  height: auto;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Add subtle background animation */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+}
+
+.video-container {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-35.83%, -27.2%) scale(.23, .27);
+  filter: brightness(.95);
+  mix-blend-mode: multiply;
+  z-index: 3;
+  max-width: min-content;
+  width: 120%;
+}
+
+.smoke-container {
+  position: absolute;
+  mix-blend-mode: exclusion;
+  opacity: 0.7;
+  z-index: 2;
+  transform: translate(-34%, -56%)scale(1.4);
+}
+
+.cover-image {
+  mix-blend-mode: lighten;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 500%;
+  height: 500%;
+  z-index: 1;
+}
+
+.mask-video {
+  mask: url("/media/images/laptop-masked.png");
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
