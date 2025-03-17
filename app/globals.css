@@ -68,20 +68,44 @@ body::before {
 .video-container {
   position: absolute;
   z-index: 2;
-  transform: translate(-35.83%, -27.2%) scale(.23, .27);
-  filter: brightness(.95);
-  mix-blend-mode: multiply;
+  transform: translate(-35.1%, -27.6%)scale(.23, .27);
+  filter: brightness(.65);
+  mix-blend-mode: hard-light;
   z-index: 3;
   max-width: min-content;
   width: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.video-container-refection {
+  position: absolute;
+  z-index: 2;
+  transform: translate(-35.1%, 3.5%)scale(.29, -.35)perspective(0);
+  filter: blur(20px) brightness(1.025);
+  mix-blend-mode: color-dodge;
+  z-index: 3;
+  max-width: min-content;
+  width: 120%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  object-fit: cover;
 }
 
 .smoke-container {
   position: absolute;
   mix-blend-mode: exclusion;
-  opacity: 0.7;
+  opacity: 0.45;
   z-index: 2;
-  transform: translate(-34%, -56%)scale(1.4);
+  transform: translate(-72%, -64%)scale(1.06);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .cover-image {
@@ -95,11 +119,58 @@ body::before {
 }
 
 .mask-video {
-  mask: url("/media/images/laptop-masked.png");
   position: relative;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  transform: translate(-35.1%, -26.2%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media screen and (max-width: 600px) {
+  .smoke-container {
+    position: absolute;
+    mix-blend-mode: exclusion;
+    opacity: 0.7;
+    z-index: 2;
+    transform: translate(-36%, -55%)scale(1.125);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+}
+
+.laptop {
+  position: relative;
+  transform: translate(37%, 25%);
+  z-index: 3;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.columns {
+  -webkit-column-fill: auto;
+  -webkit-column-gap: 2rem;
+  -webkit-columns: 550px 2;
+  column-fill: auto;
+  column-gap: 2rem;
+  columns: 550px 2 25px auto;
+  display: inline-grid;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 25px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-snap-type: y mandatory;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
