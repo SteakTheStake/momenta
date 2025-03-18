@@ -69,7 +69,7 @@ body::before {
   position: absolute;
   z-index: 2;
   transform: translate(-35.1%, -27.6%)scale(.23, .27);
-  filter: brightness(.65);
+  filter: brightness(.65) saturate(0.85);
   mix-blend-mode: hard-light;
   z-index: 3;
   max-width: min-content;
@@ -84,11 +84,11 @@ body::before {
   position: absolute;
   z-index: 2;
   transform: translate(-35.1%, 3.5%)scale(.29, -.35)perspective(0);
-  filter: blur(20px) brightness(1.025);
+  filter: blur(20px) brightness(1.025) saturate(0.85);
   mix-blend-mode: color-dodge;
   z-index: 3;
   max-width: min-content;
-  width: 120%;
+  width: 115%;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -173,4 +173,12 @@ body::before {
   -ms-user-select: none;
   user-select: none;
 
+}
+
+.showcase {
+  position: relative;
+  overflow: visible;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-snap-type: y mandatory;
 }

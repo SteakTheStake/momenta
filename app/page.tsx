@@ -68,50 +68,52 @@ const Home: NextPage = () => {
       </h2>
       
       {/* Laptop Image with Video */}
-      <div className="relative w-full max-w-[500px] mx-auto mb-12">
-        <div className="relative cover-image">
-          {/* Video Container */}
-          <div className="laptop-image absolute inset-0 w-full h-full flex items-center justify-center">
-            <div className="w-[70%] h-[60%] mt-[5%] overflow-hidden rounded-lg laptop">
-              {/* Only show smoke video when rayTracing is active */}
-              {activeShader === 'rayTracing' && (
+      <div className='showcase'>
+        <div className="relative w-full max-w-[500px] mx-auto mb-12">
+          <div className="relative cover-image">
+            {/* Video Container */}
+            <div className="laptop-image absolute inset-0 w-full h-full flex items-center justify-center">
+              <div className="w-[70%] h-[60%] mt-[5%] overflow-hidden rounded-lg laptop">
+                {/* Only show smoke video when rayTracing is active */}
+                {activeShader === 'rayTracing' && (
+                  <video
+                    src="/media/videos/Smoke-Loop.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="smoke-container"
+                  />
+                )}
+                <div
+                  data-video="true"
+                  className="mask-video"
+                >
                 <video
-                  src="/media/videos/Smoke-Loop.mp4"
+                  src={SHADER_CONTENT[activeShader].video}
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="smoke-container"
+                  className="video-container"
                 />
-              )}
-              <div
-                data-video="true"
-                className="mask-video"
-              >
-              <video
-                src={SHADER_CONTENT[activeShader].video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="video-container"
-              />
-              <video
-                src={SHADER_CONTENT[activeShader].reflection}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="video-container-refection"
-              />
-              <Image
-                src="/media/images/laptop.png"
-                alt="Laptop Display"
-                width={500}
-                height={500}
-                className="laptop-image"
-                priority
-              />
+                <video
+                  src={SHADER_CONTENT[activeShader].reflection}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="video-container-refection"
+                />
+                <Image
+                  src="/media/images/laptop.png"
+                  alt="Laptop Display"
+                  width={500}
+                  height={500}
+                  className="laptop-image"
+                  priority
+                />
+                </div>
               </div>
             </div>
           </div>
